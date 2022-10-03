@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 #include <iostream>
-#include <vector>
+#include <string>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -9,7 +10,9 @@ void espacio(){
 	cout << endl;
 }
 
-string 
+string archivoAString(string archivo){
+
+}
 
 int main() {
 
