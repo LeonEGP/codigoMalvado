@@ -10,8 +10,17 @@ void espacio(){
 	cout << endl;
 }
 
-string archivoAString(string archivo){
+string archivoAString(string archivoTXT) {
+	string line;
+	string resultado = "";
+  
+	ifstream archivo(archivoTXT);
+	while (getline(archivo, line)) {
+		resultado += line;
+	}
+	archivo.close();
 
+	return resultado;
 }
 
 int main() {
