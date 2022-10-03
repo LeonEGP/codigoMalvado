@@ -23,7 +23,37 @@ string archivoAString(string archivoTXT) {
 	return resultado;
 }
 
+void encontrarPrefijo(string patron, int m, int prefijos[]){
+	int longitud = 0;
+	prefijos[0] = 0;
+
+	for(int i = 1; i < m; i++){
+		if(patron[i] == patron[longitud]){
+			longitud++;
+			prefijos[i] = longitud;
+		} else {
+			if (longitud != 0){
+				longitud = prefijos[longitud-1];
+				i--;
+			} else{
+				prefijos[i ]= 0;
+			}
+		}
+	}
+}
+
+void buscarEnTransmisiones(string transmission, string mcode){
+	int localizaciones[transmission.size()];
+	int indice;
+}
+
 int main() {
+
+	string transmission1 = archivoAString("transmission1.txt");
+	string transmission2 = archivoAString("transmission2.txt");
+	string mcode1 = archivoAString("mcode1.txt");
+	string mcode2 = archivoAString("mcode2.txt");
+	string mcode3 = archivoAString("mcode3.txt");
 
 	cout << "INICIA PROGRAMA" << endl;
 	espacio();
