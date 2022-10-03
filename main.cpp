@@ -9,6 +9,8 @@ void espacio(){
 	cout << endl;
 }
 
+string 
+
 int main() {
 
 	cout << "INICIA PROGRAMA" << endl;
