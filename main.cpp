@@ -114,14 +114,18 @@ int main() {
 	string mcode2 = archivoAString("mcode2.txt");
 	string mcode3 = archivoAString("mcode3.txt");
 
-	cout << "INICIA PROGRAMA" << endl;
+	cout << "---------- INICIA PROGRAMA ----------" << endl;
 	espacio();
-	cout << "Busqueda de codigo malicioso en transmisiones: " << endl;
 	espacio();
-	cout << "Posible codigo malicioso en cada transmision: " << endl;
+	cout << "---------- Busqueda de codigo malicioso en transmisiones: ----------" << endl;
 	espacio();
-	cout << "Datos comunes en transmisiones: " << endl;
 	espacio();
-	cout << "TERMINA PROGRAMA" << endl;
+	cout << "---------- Posible codigo malicioso en cada transmision: ----------" << endl;
+	espacio();
+	espacio();
+	cout << "---------- Datos comunes en transmisiones: ----------" << endl;
+	espacio();
+	espacio();
+	cout << "---------- TERMINA PROGRAMA ----------" << endl;
 	return 0;
 }
