@@ -149,7 +149,7 @@ void buscarEnTransmisiones(string transmission, string mcode) {
 	} else if (indice == 1) {
 		cout << "TRUE"
 			 << " / " << transmission << " CONTIENE EL CODIGO DE " << mcode
-			 << " EN LA POSICION " << localizaciones[0] << "." << endl;
+			 << " EN LA POSICION " << localizaciones[0] << " [INICIANDO CONTEO DESDE CERO]." << endl;
 	} else {
 		cout << "TRUE"
 			 << " / " << transmission << " CONTIENE EL CODIGO DE " << mcode
@@ -159,7 +159,7 @@ void buscarEnTransmisiones(string transmission, string mcode) {
 			if ((i + 1) < indice) {
 				cout << localizaciones[i] << " ";
 			} else {
-				cout << localizaciones[i] << "." << endl;
+				cout << localizaciones[i] << " [INICIANDO CONTEO DESDE CERO]." << endl;
 			}
 		}
 	}
