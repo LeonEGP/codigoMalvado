@@ -116,9 +116,14 @@ int main() {
 
 	cout << "---------- INICIA PROGRAMA ----------" << endl;
 	espacio();
-	espacio();
 	cout << "---------- Busqueda de codigo malicioso en transmisiones: ----------" << endl;
 	espacio();
+	buscarEnTransmisiones(transmission1,mcode1);
+	buscarEnTransmisiones(transmission1,mcode2);
+	buscarEnTransmisiones(transmission1,mcode3);
+	buscarEnTransmisiones(transmission2,mcode1);
+	buscarEnTransmisiones(transmission2,mcode2);
+	buscarEnTransmisiones(transmission2,mcode3);
 	espacio();
 	cout << "---------- Posible codigo malicioso en cada transmision: ----------" << endl;
 	espacio();
