@@ -54,7 +54,7 @@ void encontrarPrefijo(string patron, int m, int prefijos[]) { //Complejidad Comp
 }
 
 //Función que implementa el algoritmo KMP, recibe el string base, el string de búsqueda, un entero apuntado que puede recibir el arreglo de localizaciones, y un entero referenciado, no tiene valor de retorno.
-void kmp(string cadena, string patron, int* arregloLocalizaciones, int& localizacion) { //Complejidad Computacional: O(m(n-m+1)), semejante a O(m(n-m)), y con Complejidad conocida por bibliografía simplificada pasa a ser: O(n), siendo n el tamaño del string base.
+void kmp(string cadena, string patron, int* arregloLocalizaciones, int& localizacion) { //Complejidad Computacional: O(m(n-m+1)), semejante a O(m(n-m)), con Complejidad conocida simplificada pasa a ser: O(n), siendo n el tamaño del string base.
 	int n;
 	int m;
 	int i;
@@ -102,7 +102,7 @@ string crearSubstring(string cadena, int menor, int mayor) { //Complejidad Compu
 }
 
 //Funcion que implementa el Algoritmo LPS, recibe un string a analizar, y retorna un vector de enteros con el indice inicial y final del string con LPS.
-vector<int> lps(string transmission) { //Complejidad Computacional O(n^2) [Fundamentándose en bibliografía conocida], siendo n el tamaño del string.
+vector<int> lps(string transmission) { //Complejidad Computacional O(n^2), siendo n el tamaño del string.
 	int n;
 	int longitudMaxima;
 	int inicio;
