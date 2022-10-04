@@ -31,7 +31,6 @@ string archivoAString(string archivoTXT) { //Complejidad Computacional: O(n), si
 	return resultado;
 }
 
-
 //Función auxiliar del Algoritmo KMP que ayuda a encontrar un Prefijo, recibe el patrón en string, su tamaño en un entero m, y un arreglo de entero con los prefijos, no tiene valor de retorno.
 void encontrarPrefijo(string patron, int m, int prefijos[]) { //Complejidad Computacional: O(m-1), que pasa a ser O(m), siendo m el tamaño del substring que se pasa por parámetro. [Siendo este string el patrón a buscar con KMP].
 	int longitud = 0;
@@ -92,7 +91,7 @@ void kmp(string cadena, string patron, int* arregloLocalizaciones, int& localiza
 	}
 }
 
-//Función que crea un substring, recibe el string base, el indice entero menor, y el indice entero mayor. Retorna el string con el substring.
+//Función auxiliar del Algoritmo LPS que crea un substring, recibe el string base, el índice entero menor, y el índice entero mayor. Retorna el string con el substring.
 string crearSubstring(string cadena, int menor, int mayor) { //Complejidad Computacional O(m-n), siendo n el entero mayor y n el entero menor.
 	string resultado;
 	resultado = "";
@@ -146,7 +145,7 @@ vector<int> lps(string transmission) { //Complejidad Computacional O(n^2) [Funda
 	return vectorDatos;
 }
 
-//Algoritmo que implementa el Algoritmo LCS, recibe un string a analizar y otro string para comparar, retorna un vector de enteros con el indice inicial y final del string con LCS.
+//Algoritmo que implementa el Algoritmo LCS, recibe un string a analizar y otro string para comparar, retorna un vector de enteros con el índice inicial y final del string con LCS.
 vector<int> lcs(string transmission1, string transmission2) { //Complejidad Computacional: O(nm), siendo n y m las longitudes de ambos strings.  
 	int n;
 	int m;
@@ -190,7 +189,7 @@ vector<int> lcs(string transmission1, string transmission2) { //Complejidad Comp
 	return vectorDatos;
 }
 
-//Función que busca en un string de transmisión un string malicioso, recibe ambos strings y no tiene valor de retorno.
+//Función que busca en un string de transmisión un string malicioso [Fundamentado en KMP], recibe ambos strings y no tiene valor de retorno.
 void buscarEnTransmisiones(string transmission, string mcode) { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
 	string cadena = archivoAString(transmission);
 	string patron = archivoAString(mcode);
@@ -220,7 +219,7 @@ void buscarEnTransmisiones(string transmission, string mcode) { //Complejidad Co
 	}
 }
 
-//Función que busca en un string de transmisión un posible código palindrómico malicioso, recibe dicho string, no tiene valor de retorno.
+//Función que busca en un string de transmisión un posible código palindrómico malicioso [Fundamentado en LPS], recibe dicho string, no tiene valor de retorno.
 void posibleCodigoMalicioso(string transmission) { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
 	string cadena;
 	string malicioso;
@@ -244,7 +243,7 @@ void posibleCodigoMalicioso(string transmission) { //Complejidad Computacional: 
 	}
 }
 
-//Función que busca similutudes entre dos strings de tranmisión, recibe ambos strings, no tiene valor de retorno.
+//Función que busca similutudes entre dos strings de tranmisión [Fundamentado en LCS], recibe ambos strings, no tiene valor de retorno.
 void buscarDatosComunes(string transmission1, string transmission2) { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
 	string cadena1;
 	string cadena2;
