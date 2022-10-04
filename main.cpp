@@ -214,11 +214,11 @@ void posibleCodigoMalicioso(string transmission) {
 
 	if (malicioso == "" || (malicioso.length()) == 1) {
 		cout << "EN " << transmission
-			 << " NO SE PRESENTA POSIBLE CODIGO MALICIOSO." << endl;
+			 << " NO SE PRESENTA CODIGO MALICIOSO." << endl;
 	} else {
 		cout << "DE " << datosLPS[0] + 1 << " A " << datosLPS[1] + 1
 			 << " [INICIANDO CONTEO DESDE UNO] EN " << transmission
-			 << " SE ENCUENTRA POSIBLE CODIGO MALICIOSO." << endl;
+			 << " SE ENCUENTRA CODIGO MALICIOSO." << endl;
 	}
 }
 
@@ -252,7 +252,7 @@ void buscarDatosComunes(string transmission1, string transmission2) {
 	if (datosLCS[0] == -1) {
 		cout << "ENTRE " << archivoDominante << " Y " << archivoSecundario << " NO SE ENCUENTRAN DATOS COMUNES." << endl;
 	} else {
-		cout << "DE " << datosLCS[0] << " A " << datosLCS[1] << " DE " << archivoDominante << " [INICIANDO CONTEO DESDE CERO], SE ENCUENTRAN ENTRE " << archivoDominante << " Y " << archivoSecundario << " DICHOS DATOS EN COMUN." << endl;
+		cout << "DE " << datosLCS[0] + 1 << " A " << datosLCS[1] + datosLCS[0] << " DE " << archivoDominante << " [INICIANDO CONTEO DESDE UNO], EXISTE TAMBIEN EN " << archivoSecundario << ", TENIENDO DATOS EN COMUN." << endl;
 	}
 }
 
