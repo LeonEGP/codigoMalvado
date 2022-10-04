@@ -13,7 +13,7 @@
 using namespace std;
 
 //Función que imprime un espacio en consola, no recibe valores, no tiene valor de retorno.
-void espacio() { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
+void espacio() { //Complejidad Computacional: O(1), es una ejecución lineal del contenido de la función. 
 	cout << endl;
 }
 
@@ -54,7 +54,7 @@ void encontrarPrefijo(string patron, int m, int prefijos[]) { //Complejidad Comp
 }
 
 //Función que implementa el algoritmo KMP, recibe el string base, el string de búsqueda, un entero apuntado que puede recibir el arreglo de localizaciones, y un entero referenciado, no tiene valor de retorno.
-void kmp(string cadena, string patron, int* arregloLocalizaciones, int& localizacion) { //Complejidad Computacional: O(m(n-m+1)), semejante a O(m(n-m)), y con Complejidad de Bibliografía simplificada pasa a O(n), siendo el tamaño del string base.
+void kmp(string cadena, string patron, int* arregloLocalizaciones, int& localizacion) { //Complejidad Computacional: O(m(n-m+1)), semejante a O(m(n-m)), y con Complejidad conocida por bibliografía simplificada pasa a ser: O(n), siendo n el tamaño del string base.
 	int n;
 	int m;
 	int i;
@@ -101,8 +101,8 @@ string crearSubstring(string cadena, int menor, int mayor) { //Complejidad Compu
 	return resultado;
 }
 
-//Algoritmo que implementa el Algoritmo LPS, recibe un string a analizar, y retorna un vector de enteros con el indice inicial y final del string con LPS.
-vector<int> lps(string transmission) { //Complejidad Computacional O(n^2) [Fundamentándose en Bibliografía], siendo n el tamaño del string.
+//Funcion que implementa el Algoritmo LPS, recibe un string a analizar, y retorna un vector de enteros con el indice inicial y final del string con LPS.
+vector<int> lps(string transmission) { //Complejidad Computacional O(n^2) [Fundamentándose en bibliografía conocida], siendo n el tamaño del string.
 	int n;
 	int longitudMaxima;
 	int inicio;
@@ -127,7 +127,7 @@ vector<int> lps(string transmission) { //Complejidad Computacional O(n^2) [Funda
 	}
 
 	for (int k = 3; k <= n; ++k) { //Complejidad Computacional O(n-2) [Que pasa a ser O(n)], siendo n el tamaño del string.
-		for (int i = 0; i < n - k + 1; ++i) {
+		for (int i = 0; i < n - k + 1; ++i) { //Complejidad Computacional O(n-k+1) [Que pasa a ser O(n)], siendo n el tamaño del string y k el valor iterativo del ciclo for en el que se encuentra.
 			int j = i + k - 1;
 			if (tabla[i + 1][j - 1] && transmission[i] == transmission[j]) {
 				tabla[i][j] = true;
@@ -145,7 +145,7 @@ vector<int> lps(string transmission) { //Complejidad Computacional O(n^2) [Funda
 	return vectorDatos;
 }
 
-//Algoritmo que implementa el Algoritmo LCS, recibe un string a analizar y otro string para comparar, retorna un vector de enteros con el índice inicial y final del string con LCS.
+//Función que implementa el Algoritmo LCS, recibe un string a analizar y otro string para comparar, retorna un vector de enteros con el índice inicial y final del string con LCS.
 vector<int> lcs(string transmission1, string transmission2) { //Complejidad Computacional: O(nm), siendo n y m las longitudes de ambos strings.  
 	int n;
 	int m;
@@ -190,7 +190,7 @@ vector<int> lcs(string transmission1, string transmission2) { //Complejidad Comp
 }
 
 //Función que busca en un string de transmisión un string malicioso [Fundamentado en KMP], recibe ambos strings y no tiene valor de retorno.
-void buscarEnTransmisiones(string transmission, string mcode) { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
+void buscarEnTransmisiones(string transmission, string mcode) { //Complejidad Computacional: O(1), es una ejecución lineal del contenido de la función. 
 	string cadena = archivoAString(transmission);
 	string patron = archivoAString(mcode);
 	int localizaciones[cadena.size()];
@@ -220,7 +220,7 @@ void buscarEnTransmisiones(string transmission, string mcode) { //Complejidad Co
 }
 
 //Función que busca en un string de transmisión un posible código palindrómico malicioso [Fundamentado en LPS], recibe dicho string, no tiene valor de retorno.
-void posibleCodigoMalicioso(string transmission) { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
+void posibleCodigoMalicioso(string transmission) { //Complejidad Computacional: O(1), es una ejecución lineal del contenido de la función. 
 	string cadena;
 	string malicioso;
 	vector<int> datosLPS;
@@ -244,7 +244,7 @@ void posibleCodigoMalicioso(string transmission) { //Complejidad Computacional: 
 }
 
 //Función que busca similutudes entre dos strings de tranmisión [Fundamentado en LCS], recibe ambos strings, no tiene valor de retorno.
-void buscarDatosComunes(string transmission1, string transmission2) { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
+void buscarDatosComunes(string transmission1, string transmission2) { //Complejidad Computacional: O(1), es una ejecución lineal del contenido de la función. 
 	string cadena1;
 	string cadena2;
 	string resultado;
@@ -282,7 +282,7 @@ void buscarDatosComunes(string transmission1, string transmission2) { //Compleji
 }
 
 //Función main de ejecución del programa, no recibe valores, retorna un valor 0 al finalizar la ejecución.
-int main() { //Complejidad Computacional: O(1), es ejecución una lineal del contenido de la función. 
+int main() { //Complejidad Computacional: O(1), es una ejecución lineal del contenido de la función. 
 
 	cout << "---------- ¡¡¡INICIA PROGRAMA!!! ----------" << endl;
 	espacio();
