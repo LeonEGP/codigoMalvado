@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-//Ajste a estandar.
+//Ajuste a estandar.
 using namespace std;
 
 //Función que imprime un espacio en consola, no recibe valores, no tiene valor de retorno.
