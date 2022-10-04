@@ -82,8 +82,8 @@ void kmp(
 }
 
 void buscarEnTransmisiones(string transmission, string mcode) {
-	string cadena = transmission;
-	string patron = mcode;
+	string cadena = archivoAString(transmission);
+	string patron = archivoAString(mcode);
 	int localizaciones[cadena.size()];
 	int indice;
 
@@ -106,24 +106,22 @@ void buscarEnTransmisiones(string transmission, string mcode) {
 	}
 }
 
-int main() {
+void lps(string transmission){
 
-	string transmission1 = archivoAString("transmission1.txt");
-	string transmission2 = archivoAString("transmission2.txt");
-	string mcode1 = archivoAString("mcode1.txt");
-	string mcode2 = archivoAString("mcode2.txt");
-	string mcode3 = archivoAString("mcode3.txt");
+}
+
+int main() {
 
 	cout << "---------- INICIA PROGRAMA ----------" << endl;
 	espacio();
 	cout << "---------- Busqueda de codigo malicioso en transmisiones: ----------" << endl;
 	espacio();
-	buscarEnTransmisiones(transmission1,mcode1);
-	buscarEnTransmisiones(transmission1,mcode2);
-	buscarEnTransmisiones(transmission1,mcode3);
-	buscarEnTransmisiones(transmission2,mcode1);
-	buscarEnTransmisiones(transmission2,mcode2);
-	buscarEnTransmisiones(transmission2,mcode3);
+	buscarEnTransmisiones("transmission1.txt","mcode1.txt");
+	buscarEnTransmisiones("transmission1.txt","mcode2.txt");
+	buscarEnTransmisiones("transmission1.txt","mcode3.txt");
+	buscarEnTransmisiones("transmission2.txt","mcode1.txt");
+	buscarEnTransmisiones("transmission2.txt","mcode2.txt");
+	buscarEnTransmisiones("transmission2.txt","mcode3.txt");
 	espacio();
 	cout << "---------- Posible codigo malicioso en cada transmision: ----------" << endl;
 	espacio();
