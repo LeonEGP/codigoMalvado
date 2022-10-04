@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -81,6 +81,59 @@ void kmp(
 	}
 }
 
+string crearSubstring(string cadena, int menor, int mayor) {
+	string resultado;
+	resultado = "";
+	for (int i = menor; i <= mayor; ++i) {
+		resultado += cadena[i];
+	}
+  return resultado;
+}
+
+vector<int> lps(string transmission) {
+	int n;
+	int longitudMaxima;
+	int inicio;
+	n = transmission.size();
+	bool tabla[n][n];
+
+	memset(tabla, 0, sizeof(tabla));
+
+	longitudMaxima = 1;
+
+	for (int i = 0; i < n; ++i) {
+		tabla[i][i] = true;
+	}
+
+	inicio = 0;
+
+	for (int j = 0; j < n - 1; j++) {
+		if (transmission[j] == transmission[j + 1]) {
+			tabla[j][j + 1] = true;
+			inicio = j;
+			longitudMaxima = 2;
+		}
+	}
+
+	for (int k = 3; k <= n; ++k) {
+		for (int i = 0; i < n - k + 1; ++i) {
+			int j = i + k - 1;
+			if (tabla[i + 1][j - 1] && transmission[i] == transmission[j]) {
+				tabla[i][j] = true;
+				if (k > longitudMaxima) {
+					inicio = i;
+					longitudMaxima = k;
+				}
+			}
+		}
+	}
+
+	vector<int> vectorDatos; 
+  vectorDatos.push_back(inicio);
+  vectorDatos.push_back(inicio+longitudMaxima-1);
+	return vectorDatos;
+}
+
 void buscarEnTransmisiones(string transmission, string mcode) {
 	string cadena = archivoAString(transmission);
 	string patron = archivoAString(mcode);
@@ -90,24 +143,46 @@ void buscarEnTransmisiones(string transmission, string mcode) {
 	kmp(cadena, patron, localizaciones, indice);
 
 	if (indice == 0) {
-		cout << "FALSE" << " / " << transmission << " NO CONTIENE EL CODIGO DE " << mcode << " EN NINGUNA POSICION." << endl;
+		cout << "FALSE"
+			 << " / " << transmission << " NO CONTIENE EL CODIGO DE " << mcode
+			 << " EN NINGUNA POSICION." << endl;
 	} else if (indice == 1) {
-		cout << "TRUE" << " / " << transmission << " CONTIENE EL CODIGO DE " << mcode << " EN LA POSICION " << localizaciones[0] << "." << endl;
+		cout << "TRUE"
+			 << " / " << transmission << " CONTIENE EL CODIGO DE " << mcode
+			 << " EN LA POSICION " << localizaciones[0] << "." << endl;
 	} else {
-		cout << "TRUE" << " / " << transmission << " CONTIENE EL CODIGO DE " << mcode << " EN LAS POSICIONES ";
+		cout << "TRUE"
+			 << " / " << transmission << " CONTIENE EL CODIGO DE " << mcode
+			 << " EN LAS POSICIONES ";
 
 		for (int i = 0; i < indice; i++) {
-			if ((i+1) < indice) {
+			if ((i + 1) < indice) {
 				cout << localizaciones[i] << " ";
 			} else {
-        cout << localizaciones[i] << "." << endl;
-      }
+				cout << localizaciones[i] << "." << endl;
+			}
 		}
 	}
 }
 
-void lps(string transmission){
+void posibleCodigoMalicioso(string transmission) {
+	string cadena;
+	string malicioso;
+  vector<int> datosLPS;
+  cadena = archivoAString(transmission);
+  malicioso = "";
+  datosLPS = lps(cadena);
 
+  if (cadena != ""){
+    malicioso = crearSubstring(cadena, datosLPS[0], datosLPS[1]);  
+  }
+
+  if(malicioso == "" || (malicioso.length())==1){
+    cout << "EN " << transmission << " NO SE PRESENTA POSIBLE CODIGO MALICIOSO."<< endl;
+  } else {
+    cout << "DE " << datosLPS[0]+1 << " A " << datosLPS[1]+1 << " [INICIANDO CONTEO DESDE UNO] EN " << transmission << " SE ENCUENTRA POSIBLE CODIGO MALICIOSO."<< endl;
+  }
+  
 }
 
 int main() {
@@ -125,6 +200,8 @@ int main() {
 	espacio();
 	cout << "---------- Posible codigo malicioso en cada transmision: ----------" << endl;
 	espacio();
+	posibleCodigoMalicioso("transmission1.txt");
+	posibleCodigoMalicioso("transmission2.txt");
 	espacio();
 	cout << "---------- Datos comunes en transmisiones: ----------" << endl;
 	espacio();
