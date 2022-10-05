@@ -288,30 +288,21 @@ int main() { //Complejidad Computacional: O(1), es una ejecución lineal del con
 	espacio();
 	cout << "---------- BUSQUEDA DE CIERTOS CODIGOS MALICIOSO EN TRANSMISIONES : ----------" << endl;
 	espacio();
-	/*
 	buscarEnTransmisiones("transmission1.txt","mcode1.txt");
 	buscarEnTransmisiones("transmission1.txt","mcode2.txt");
 	buscarEnTransmisiones("transmission1.txt","mcode3.txt");
 	buscarEnTransmisiones("transmission2.txt","mcode1.txt");
 	buscarEnTransmisiones("transmission2.txt","mcode2.txt");
 	buscarEnTransmisiones("transmission2.txt","mcode3.txt");
-	*/
-	buscarEnTransmisiones("input.txt", "mc1.txt"); //Prueba 1
 	espacio();
 	cout << "---------- CODIGO MALICIOSO PALINDROMICO EN LAS TRANSMISIONES: ----------" << endl;
 	espacio();
-	/*
 	posibleCodigoMalicioso("transmission1.txt");
 	posibleCodigoMalicioso("transmission2.txt");
-	*/
-	posibleCodigoMalicioso("in1.txt"); //Prueba 2
 	espacio();
 	cout << "---------- SEMEJANZA ENTRE TRANSMISIONES: ----------" << endl;
 	espacio();
-	/*
 	buscarDatosComunes("transmission1.txt","transmission2.txt");
-	*/
-	buscarDatosComunes("ip1.txt", "ip2.txt"); //Prueba 3
 	espacio();
 	cout << "---------- ¡¡¡TERMINA PROGRAMA!!! ----------" << endl;
 	return 0;
